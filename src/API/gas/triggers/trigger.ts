@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { getNextEvent } from '../../../models/events/getNextEvent';
 import {
-  postNextEventAnnouncement,
-  postTodayEventAnnouncement,
+  postNextEventAnnouncementForDiscord,
+  postNextEventAnnouncementForTwitter,
+  postTodayEventAnnouncementForDiscord,
+  postTodayEventAnnouncementForTwitter,
 } from '../../../postEventAnnouncement';
-import { postTweet } from '../../twitter/postTweet';
 import {
   isVRChatAbleToLoginWithTwoFactorAuth,
   postVRChatGroupAnnouncement,
@@ -26,11 +26,7 @@ import {
 import { createNextHackathonTimeTable } from '../../../models/hackathons/createNextHackathonTimeTable';
 
 export function triggerTodayAnnouncementTweet() {
-  const nextEventInfo = getNextEvent();
-  const text =
-    `今日はエンジニア作業飲み集会やるよー!\n良かったら遊びに来てねーーーー！\n` +
-    nextEventInfo.tweetUrl.value;
-  postTweet(text);
+  postTodayEventAnnouncementForTwitter()
 
   const triggers = ScriptApp.getProjectTriggers();
   for (let i = 0; i < triggers.length; i++) {
@@ -41,7 +37,7 @@ export function triggerTodayAnnouncementTweet() {
 }
 
 export function triggerTodayAnnouncement() {
-  postTodayEventAnnouncement();
+  postTodayEventAnnouncementForDiscord();
 
   const triggers = ScriptApp.getProjectTriggers();
   for (let i = 0; i < triggers.length; i++) {
@@ -52,7 +48,8 @@ export function triggerTodayAnnouncement() {
 }
 
 export function triggerWeekAnnouncement() {
-  postNextEventAnnouncement();
+  postNextEventAnnouncementForDiscord();
+  postNextEventAnnouncementForTwitter()
 
   const triggers = ScriptApp.getProjectTriggers();
   for (let i = 0; i < triggers.length; i++) {

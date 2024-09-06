@@ -18,20 +18,11 @@ import {
   announceEventToDiscord,
   checkAnnouncementStatus,
 } from './API/discord/postMessageToDiscord';
-import { announceEventToTwitter } from './API/twitter/postTweet';
+import { announceEventToTwitter, postTweet } from './API/twitter/postTweet';
 
-export function postNextEventAnnouncement() {
+export function postNextEventAnnouncementForDiscord() {
   const nextEventInfo = getNextEvent();
   checkAnnouncementStatus(nextEventInfo);
-  announceEventToTwitter(
-    nextEventInfo.tweetText,
-    nextEventInfo.tweetImageUrl,
-    nextEventInfo.sheetName,
-    nextEventInfo.isTweetPostedWeek.row,
-    nextEventInfo.isTweetPostedWeek.column,
-    nextEventInfo.tweetUrl.row,
-    nextEventInfo.tweetUrl.column
-  );
   announceEventToDiscord(
     nextEventInfo.discordTextWeek,
     nextEventInfo.sheetName,
@@ -40,7 +31,21 @@ export function postNextEventAnnouncement() {
   );
 }
 
-export function postTodayEventAnnouncement() {
+export function postNextEventAnnouncementForTwitter() {
+  const nextEventInfo = getNextEvent();
+  checkAnnouncementStatus(nextEventInfo);
+  announceEventToTwitter(
+    nextEventInfo.tweetTextWeek,
+    nextEventInfo.tweetImageUrl,
+    nextEventInfo.sheetName,
+    nextEventInfo.isTweetPostedWeek.row,
+    nextEventInfo.isTweetPostedWeek.column,
+    nextEventInfo.tweetUrl.row,
+    nextEventInfo.tweetUrl.column
+  );
+}
+
+export function postTodayEventAnnouncementForDiscord() {
   const nextEventInfo = getNextEvent();
   announceEventToDiscord(
     nextEventInfo.discordTextToday,
@@ -48,4 +53,10 @@ export function postTodayEventAnnouncement() {
     nextEventInfo.isDiscordPostedToday.row,
     nextEventInfo.isDiscordPostedToday.column
   );
+}
+
+export function postTodayEventAnnouncementForTwitter() {
+  const nextEventInfo = getNextEvent();
+  const text = nextEventInfo.tweetTextToday
+  postTweet(text);
 }

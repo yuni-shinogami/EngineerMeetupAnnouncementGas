@@ -66,7 +66,8 @@ type NoticeTwitterType = {
     column: number;
     value: string;
   };
-  tweetText: string;
+  tweetTextWeek: string;
+  tweetTextToday: string;
   tweetImageUrl: string;
 };
 
