@@ -27,7 +27,7 @@ import {
   triggerTodayAnnouncementTweet,
   triggerVRChatAnnouncement,
   triggerWeekAnnouncement,
-} from './triggers/trigger';
+} from './API/gas/triggers/trigger';
 
 /* eslint-disable */
 function MainTriggerTodayAnnouncementTweet() {

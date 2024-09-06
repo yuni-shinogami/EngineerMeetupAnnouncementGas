@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { getNextEvent } from '../models/events/getNextEvent';
+import { getNextEvent } from '../../../models/events/getNextEvent';
 import {
   postNextEventAnnouncement,
   postTodayEventAnnouncement,
-} from '../postEventAnnouncement';
-import { postTweet } from '../API/twitter/postTweet';
+} from '../../../postEventAnnouncement';
+import { postTweet } from '../../twitter/postTweet';
 import {
   isVRChatAbleToLoginWithTwoFactorAuth,
   postVRChatGroupAnnouncement,
-} from '../API/vrchat/postVRChatGroupAnnouncement';
-import { createNextHackathonTimeTable } from '../models/hackathons/createNextHackathonTimeTable';
+} from '../../vrchat/postVRChatGroupAnnouncement';
+import { createNextHackathonTimeTable } from '../../../models/hackathons/createNextHackathonTimeTable';
 
 export function triggerTodayAnnouncementTweet() {
   const nextEventInfo = getNextEvent();

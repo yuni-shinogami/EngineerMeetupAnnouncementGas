@@ -16,7 +16,7 @@
 import { sendMessageToDiscordChannel } from '../discord/postMessageToDiscord';
 import { applicationEnv } from '../../setting';
 import { getScriptProperty } from '../gas/spreadsheet/helper/helper';
-import { setTriggerIsVRChatAbleToLoginWithTwoFactorAuth } from '../../triggers/setTriggers';
+import { setTriggerIsVRChatAbleToLoginWithTwoFactorAuth } from '../gas/triggers/setTriggers';
 
 /* eslint-disable */
 function setPropertyVrchatAuthToken() {

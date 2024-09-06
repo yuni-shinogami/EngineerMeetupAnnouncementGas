@@ -31,7 +31,7 @@ import {
   triggerTodayAnnouncementTweet,
   triggerVRChatAnnouncement,
   triggerWeekAnnouncement,
-} from './triggers/trigger';
+} from './API/gas/triggers/trigger';
 
 // setTriggerTodayAnnouncementTweet
 function testTriggerTodayAnnouncementTweet() {

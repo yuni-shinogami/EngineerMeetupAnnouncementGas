@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { getNextEvent } from '../models/events/getNextEvent';
+import { getNextEvent } from '../../../models/events/getNextEvent';
 
 export function setTriggerTodayAnnouncementTweet() {
   // MEMO: 毎週金曜日の00:00~01:00に実行する
