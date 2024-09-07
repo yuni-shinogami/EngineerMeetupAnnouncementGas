@@ -57,6 +57,6 @@ export function postTodayEventAnnouncementForDiscord() {
 
 export function postTodayEventAnnouncementForTwitter() {
   const nextEventInfo = getNextEvent();
-  const text = nextEventInfo.tweetTextToday
+  const text = nextEventInfo.tweetTextToday;
   postTweet(text);
 }

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { createNextHackathonTimeTable } from '../../../models/hackathons/createNextHackathonTimeTable';
 import {
   postNextEventAnnouncementForDiscord,
   postNextEventAnnouncementForTwitter,
@@ -23,10 +24,9 @@ import {
   isVRChatAbleToLoginWithTwoFactorAuth,
   postVRChatGroupAnnouncement,
 } from '../../vrchat/postVRChatGroupAnnouncement';
-import { createNextHackathonTimeTable } from '../../../models/hackathons/createNextHackathonTimeTable';
 
 export function triggerTodayAnnouncementTweet() {
-  postTodayEventAnnouncementForTwitter()
+  postTodayEventAnnouncementForTwitter();
 
   const triggers = ScriptApp.getProjectTriggers();
   for (let i = 0; i < triggers.length; i++) {
@@ -49,7 +49,7 @@ export function triggerTodayAnnouncement() {
 
 export function triggerWeekAnnouncement() {
   postNextEventAnnouncementForDiscord();
-  postNextEventAnnouncementForTwitter()
+  postNextEventAnnouncementForTwitter();
 
   const triggers = ScriptApp.getProjectTriggers();
   for (let i = 0; i < triggers.length; i++) {
