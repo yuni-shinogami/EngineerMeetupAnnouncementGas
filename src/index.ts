@@ -28,6 +28,7 @@ import {
   triggerVRChatAnnouncement,
   triggerWeekAnnouncement,
 } from './API/gas/triggers/trigger';
+import { outputNextHackathonDiscordMentionText } from './models/hackathons/outputNextHackathonDiscordMentionText';
 
 /* eslint-disable */
 function MainTriggerTodayAnnouncementTweet() {
@@ -58,6 +59,10 @@ function testGoogleForm() {
   const formUrl = copyGoogleFormTemplate('https://docs.google.com/forms/d/1dLFfhUSxM8NVk0Rr7ITECdPMRzYNREyKw4O5GXdKB24/edit');
   editGoogleFormDescription(formUrl, 'testtesttesttesttesttesttesttest');
   editGoogleFormTitle(formUrl, 'test');
+}
+
+function testDiscordTest() {
+  outputNextHackathonDiscordMentionText();
 }
 
 function MainDebug() {
