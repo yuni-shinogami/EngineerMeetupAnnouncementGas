@@ -13,38 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { getHackathonParticipantsList } from '../../API/gas/spreadsheet/hackathon/sheet';
-import {
-  createNewSheet,
-  isSheetExist,
-} from '../../API/gas/spreadsheet/helper/helper';
-import { createHackathonTimeTable } from './createTimeTable';
+import { createActiveParticipantsHackathonTimeTable } from './createActiveParticipantsHackathonTimeTable';
+import { createHackathonSheets } from './createHackathonSheets';
 import { getNextHackathon } from './getNextHackathon';
 import { outputHackathonTimeTable } from './outputHackathonTimeTable';
 
 export function createNextHackathonTimeTable() {
   const timeTableSheetName = 'タイムテーブル';
   const nextHackathon = getNextHackathon();
-  const participants = getHackathonParticipantsList(
-    nextHackathon.spreadSheetId
-  );
-
-  if (!isSheetExist(timeTableSheetName, nextHackathon.spreadSheetId)) {
-    createNewSheet(timeTableSheetName, nextHackathon.spreadSheetId);
-  }
-
-  const abstentions = nextHackathon.abstentions.split(',');
-  const timeTableData = createHackathonTimeTable(
-    nextHackathon.eventDate,
-    nextHackathon.openingTimeMin,
-    nextHackathon.endingTimeMin,
-    nextHackathon.preparationTimeMin,
-    nextHackathon.breakTimingNum,
-    nextHackathon.breakTimeMin,
-    nextHackathon.presentationMaxTimeMin,
-    participants,
-    abstentions
-  );
+  createHackathonSheets(nextHackathon.spreadSheetId, [timeTableSheetName]);
+  const timeTableData =
+    createActiveParticipantsHackathonTimeTable(nextHackathon);
   outputHackathonTimeTable(
     nextHackathon.spreadSheetId,
     timeTableData,

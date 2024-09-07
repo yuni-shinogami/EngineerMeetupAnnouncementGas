@@ -14,21 +14,13 @@
  * limitations under the License.
  */
 import { HackathonTimeTableType } from '../../API/gas/spreadsheet/hackathon/types';
-import {
-  createNewSheet,
-  getSheetByName,
-  isSheetExist,
-} from '../../API/gas/spreadsheet/helper/helper';
+import { getSheetByName } from '../../API/gas/spreadsheet/helper/helper';
 
 export function outputHackathonTimeTable(
   sheetId: string,
   timeTableData: HackathonTimeTableType[],
   timeTableSheetName: string
 ) {
-  if (!isSheetExist(timeTableSheetName, sheetId)) {
-    createNewSheet(timeTableSheetName, sheetId);
-  }
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const timeTable: any[][] = [
     ['内容', '開始時間', '終了時間', 'チーム名', '写真撮影可', '動画撮影可'],

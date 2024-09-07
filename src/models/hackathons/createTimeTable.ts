@@ -28,8 +28,7 @@ export function createHackathonTimeTable(
   breakTimingNum: number,
   breakTimeMin: number,
   presentationTimeMin: number,
-  participants: HackathonParticipantsType[],
-  abstentions: string[]
+  participants: HackathonParticipantsType[]
 ): HackathonTimeTableType[] {
   const timeTable: HackathonTimeTableType[] = [];
   let sectionStartTime = new Date(
@@ -56,9 +55,6 @@ export function createHackathonTimeTable(
   sectionStartTime = addMinutes(sectionStartTime, openingTimeMin);
 
   for (let i = 0; i < participants.length; i++) {
-    const isAbstention = abstentions.includes(participants[i].teamLeader);
-    if (isAbstention) continue;
-
     if (i !== 0 && i % breakTimingNum === 0) {
       sectionEndTime = addMinutes(sectionStartTime, breakTimeMin);
       timeTable.push({
