@@ -136,3 +136,4 @@ build/
 .clasp*.json
 *.tgz
 .vscode/
+.idea/
