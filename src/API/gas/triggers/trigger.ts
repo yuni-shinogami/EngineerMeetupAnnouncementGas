@@ -48,8 +48,8 @@ export function triggerTodayAnnouncement() {
 }
 
 export function triggerWeekAnnouncement() {
-  postNextEventAnnouncementForDiscord();
   postNextEventAnnouncementForTwitter();
+  postNextEventAnnouncementForDiscord();
 
   const triggers = ScriptApp.getProjectTriggers();
   for (let i = 0; i < triggers.length; i++) {
