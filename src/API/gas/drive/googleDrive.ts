@@ -13,8 +13,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export const eventsSheetId = '1wVatxRPHELfmoGpJRSuXDlizU7nG5OWmtiZEDthd7PI';
-export const hackathonSheetName = 'エンジニア集会ハッカソン';
-export const googleFormAnswerSheetName = 'フォームの回答 1';
-export const ltTemplateFormUrl =
-  'https://docs.google.com/forms/d/1im0uhbHAl25op2jWC2qi0h-5f1MQOGJXLzf2JwSpbHM/edit';

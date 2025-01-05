@@ -22,6 +22,12 @@ export function copyGoogleFormTemplate(templateUrl: string) {
   return copyFileUrl;
 }
 
+export function editGoogleFormFileName(fileUrl: string, name: string) {
+  const form = FormApp.openByUrl(fileUrl);
+  const file = DriveApp.getFileById(form.getId());
+  file.setName(name);
+}
+
 export function editGoogleFormTitle(fileUrl: string, title: string) {
   const file = FormApp.openByUrl(fileUrl);
   file.setTitle(title);
