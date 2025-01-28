@@ -17,7 +17,7 @@ import { applicationEnv } from '../../setting';
 import {
   getScriptProperty,
   toggleChangeCheckBox,
-} from '../gas/spreadsheet/helper/helper';
+} from '../../utils/spreadsheet/utils';
 import { EventType } from '../gas/spreadsheet/events/type';
 import { eventsSheetId } from '../../constants';
 
