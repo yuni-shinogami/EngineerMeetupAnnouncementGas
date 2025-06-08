@@ -13,15 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { getSheetByName } from '../../utils/spreadsheet/utils';
-import { createHackathonDiscordMentionText } from './createDiscordMentionText';
-import { getNextHackathon } from './getNextHackathon';
+import {
+  copyGoogleFormTemplate,
+  editGoogleFormDescription,
+  editGoogleFormFileName,
+  editGoogleFormTitle,
+} from '../../API/gas/form/googleForm';
+import { ltTemplateFormUrl } from '../../constants';
 
-export function outputNextHackathonDiscordMentionText() {
-  const discordSheetName = 'Discord';
-  const nextHackathon = getNextHackathon();
-
-  const mentionText = createHackathonDiscordMentionText(nextHackathon);
-  const sheet = getSheetByName(discordSheetName, nextHackathon.spreadSheetId);
-  sheet.getRange('A1').setValues([[mentionText]]);
+export function createLtForm() {
+  const theme = 'test';
+  const count = 99;
+  const formTitle = `エンジニア集会LT会#${count} 「${theme}」 参加申し込み`;
+  const formUrl = copyGoogleFormTemplate(ltTemplateFormUrl);
+  editGoogleFormDescription(formUrl, 'testtesttesttesttesttesttesttest');
+  editGoogleFormTitle(formUrl, formTitle);
+  editGoogleFormFileName(formUrl, formTitle);
 }

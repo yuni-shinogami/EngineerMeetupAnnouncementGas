@@ -18,7 +18,7 @@ import {
   HackathonParticipantsType,
   HackathonTimeTableType,
 } from '../../API/gas/spreadsheet/hackathon/types';
-import { addMinutes } from './helper/helper';
+import { addMinutes } from './utils/utils';
 
 export function createHackathonTimeTable(
   startTime: Date,

@@ -18,7 +18,7 @@ import {
   googleFormAnswerSheetName,
   hackathonSheetName,
 } from '../../../../constants';
-import { getAllValues, getSheetByName } from '../helper/helper';
+import { getAllValues, getSheetByName } from '../../../../utils/spreadsheet/utils';
 import { hackathonParticipantsMapper, hackathonsMapper } from './mapper';
 
 export function getHackathonsList() {

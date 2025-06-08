@@ -19,7 +19,7 @@ import {
   getScriptProperty,
   setValueToCell,
   toggleChangeCheckBox,
-} from '../gas/spreadsheet/helper/helper';
+} from '../../utils/spreadsheet/utils';
 import { eventsSheetId } from '../../constants';
 
 const CONSUMER_API_KEY = getScriptProperty('TwitterConsumerApiKey');

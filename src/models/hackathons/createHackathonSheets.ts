@@ -16,7 +16,7 @@
 import {
   createNewSheet,
   isSheetExist,
-} from '../../API/gas/spreadsheet/helper/helper';
+} from '../../utils/spreadsheet/utils';
 
 export function createHackathonSheets(sheetId: string, sheetNames: string[]) {
   sheetNames.forEach(sheetName => {

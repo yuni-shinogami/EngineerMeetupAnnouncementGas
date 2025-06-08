@@ -13,15 +13,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { getSheetByName } from '../../utils/spreadsheet/utils';
-import { createHackathonDiscordMentionText } from './createDiscordMentionText';
-import { getNextHackathon } from './getNextHackathon';
-
-export function outputNextHackathonDiscordMentionText() {
-  const discordSheetName = 'Discord';
-  const nextHackathon = getNextHackathon();
-
-  const mentionText = createHackathonDiscordMentionText(nextHackathon);
-  const sheet = getSheetByName(discordSheetName, nextHackathon.spreadSheetId);
-  sheet.getRange('A1').setValues([[mentionText]]);
-}

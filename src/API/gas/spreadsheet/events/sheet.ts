@@ -17,7 +17,7 @@ import {
   getAllValues,
   getColumnValuesWithTitle,
   getSheetsByKeyWord,
-} from '../helper/helper';
+} from '../../../../utils/spreadsheet/utils';
 import { EventType } from './type';
 import { clusterEventMapper, vrchatEventMapper } from './mapper';
 import { eventsSheetId } from '../../../../constants';

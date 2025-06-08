@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import { HackathonTimeTableType } from '../../API/gas/spreadsheet/hackathon/types';
-import { getSheetByName } from '../../API/gas/spreadsheet/helper/helper';
+import { getSheetByName } from '../../utils/spreadsheet/utils';
 
 export function outputHackathonTimeTable(
   sheetId: string,

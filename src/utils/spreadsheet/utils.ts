@@ -88,8 +88,8 @@ export const getColumnValuesWithTitle = (
   title: string
 ) => {
   const column = getTitleColumn(sheet, title);
-  const lastCol = sheet.getLastColumn();
-  const range = sheet.getRange(1, column, lastCol, 1);
+  const lastRow = sheet.getLastRow();
+  const range = sheet.getRange(1, column, lastRow, 1);
   return range.getValues();
 };
 

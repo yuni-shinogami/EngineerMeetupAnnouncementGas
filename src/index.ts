@@ -14,11 +14,6 @@
  * limitations under the License.
  */
 
-import {
-  copyGoogleFormTemplate,
-  editGoogleFormDescription,
-  editGoogleFormTitle,
-} from './API/gas/form/googleForm';
 import { debugFunctions } from './test';
 import {
   triggerCreateNextHackathonTimeTable,
@@ -29,6 +24,7 @@ import {
   triggerWeekAnnouncement,
 } from './API/gas/triggers/trigger';
 import { outputNextHackathonDiscordMentionText } from './models/hackathons/outputNextHackathonDiscordMentionText';
+import { createLtForm } from './models/lts/createLtForm';
 
 /* eslint-disable */
 function MainTriggerTodayAnnouncementTweet() {
@@ -56,9 +52,7 @@ function MainTriggerCreateNextHackathonTimeTable() {
 }
 
 function testGoogleForm() {
-  const formUrl = copyGoogleFormTemplate('https://docs.google.com/forms/d/1dLFfhUSxM8NVk0Rr7ITECdPMRzYNREyKw4O5GXdKB24/edit');
-  editGoogleFormDescription(formUrl, 'testtesttesttesttesttesttesttest');
-  editGoogleFormTitle(formUrl, 'test');
+  createLtForm();
 }
 
 function testDiscordTest() {
